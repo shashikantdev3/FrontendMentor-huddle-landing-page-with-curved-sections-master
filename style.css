@@ -1,0 +1,641 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application BUT this cause problem to mobile layout if you give max-width in pixel. So better comment it.
+  */
+  html, body {
+    /* height: 100%;  */
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+/* Custom Properties */
+:root{
+
+    /* primary */
+    --clr-pink : hsl(322, 100%, 66%);
+    --clr-light-pink : hsl(321, 100%, 78%);
+    --clr-light-red :  hsl(0, 100%, 63%);
+    
+    /* neutral */
+    --clr-very-dark-cyan : hsl(192, 100%, 9%);
+    --clr-very-pale-blue : hsl(207, 100%, 98%);
+
+    /* Font size */
+    --fs: 1rem;
+
+    /* Font family */
+    /* accent */
+    --ff-accent: 'Poppins', sans-serif;
+    /* neutral on whole body */
+    --ff-neutral: 'Open Sans', sans-serif;
+}
+
+/* General Styling */
+body{
+  font-family:var(--ff-neutral);
+  font-size: var(--fs);
+  line-height: 1.2;
+  color: var(--clr-very-dark-cyan);
+  display: grid;
+  place-content: center;
+}
+
+main,
+footer{
+    max-width: 375px;
+   /*  border: 1px solid red; */
+}
+
+.flex-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header{
+    padding: 2rem;
+}
+
+.header-logo{
+    max-width: 6rem;
+}
+
+.header-try-it-free{
+    border: 1px solid var(--clr-light-pink);
+    background-color: white;
+    color: var(--clr-light-pink);
+    font-size: 0.825rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.huddle__hero{
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.huddle__hero-header{
+    font-size: 1.5rem;
+}
+
+.huddle__hero-description{
+    margin: 1rem 0.5rem;
+    font-size: 0.825rem;
+}
+
+.huddle__hero-button{
+    border: 0;
+    margin: 2rem;
+    padding: 0.5rem 2rem;
+    background-color: var(--clr-pink);
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 2px 0 11px 0 rgba(0, 0, 0, 0.5); 
+}
+
+.huddle__hero-screen__mockup{
+    margin-top: 5rem;
+}
+
+.huddle__stats.flex-item,
+.huddle__stats-messages.flex-item{
+    flex-direction: column;
+}
+
+.huddle__stats{
+    padding: 1rem 4rem;
+    text-align: left;
+}
+
+.huddle__stats-communities__icon,
+.huddle__stats-messages__icon{
+    max-width: 1.5rem;
+}
+
+.huddle__stats-communities{
+    margin: 3rem 0;
+}
+
+.huddle__stats-communities__title,
+.huddle__stats-messages__title{
+    font-size: 3.5rem;
+    padding: 0.5rem 0;
+}
+
+.huddle__stats-communities__description,
+.huddle__stats-messages__description{
+    color: grey;
+
+}
+
+.huddle__stats-messages__description{
+    text-align: center;
+    padding: 0 3rem;
+}
+
+.huddle__grow.flex-item,
+.huddle__flowing.flex-item,
+.huddle__users.flex-item{
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.huddle__grow,
+.huddle__flowing,
+.huddle__users{
+    padding: 2rem;
+}
+
+.huddle__grow-description,
+.huddle__flowing-description,
+.huddle__users-description{
+    font-size: 0.9rem;
+}
+
+.top-section-curve-1{
+    background-image: url(./images/bg-section-top-mobile-1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 15vh;
+}
+
+.bottom-section-curve-1{
+    background-image: url(./images/bg-section-bottom-mobile-1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 7vh;
+}
+
+.huddle__grow{
+    background-color: var(--clr-very-pale-blue);
+}
+
+.huddle__flowing{
+    margin-top: 2rem;
+}
+
+.top-section-curve-2{
+    background-image: url(./images/bg-section-top-mobile-2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 15vh;
+}
+
+.huddle__users{
+    background-color: var(--clr-very-pale-blue);
+}
+
+.bottom-section-curve-2{
+    background-image: url(./images/bg-section-bottom-mobile-2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 15vh;
+}
+
+.build-your-community{
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--ff-accent);
+}
+
+.get-started-for-free{
+    margin: 0 20%;
+    padding: 0.75rem 2.5rem;
+    border: 0;
+    background-color: var(--clr-pink);
+    border-radius: 1.5rem;
+    font-family: var(--ff-accent);
+    color: white;
+    font-size: 0.825rem;
+    box-shadow: 2px 0 11px 0 rgba(0, 0, 0, 0.5);
+}
+
+.top-footer-curve{
+    margin-top: 5rem;
+    background-image: url(./images/bg-footer-top-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 7vh;
+}
+
+footer.flex-item{
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    color: white;
+    background-color: var(--clr-very-dark-cyan);
+}
+
+.newsletter{
+    padding: 1rem 0;
+}
+
+.newslaetter-description{
+    padding: 1rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+input[type="email"]{
+    padding: 0.9rem 3.5rem 0.9rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.subscribe{
+    margin-left: 50%;
+    padding: 0.9rem 2.2rem;
+    margin-top: 1rem;
+    color: white;
+    background-color: var(--clr-pink);
+    border-radius: 0.5rem;
+    font-family: var(--ff-accent);
+    max-height: 51.2px;
+}
+
+.subscribe:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+::placeholder{
+    color: transparent;
+}
+
+:is(:hover,:focus,:active)::placeholder { /* Chrome/Opera/Safari */
+    color: #999;
+  }
+
+.error-text{
+    margin-top: 0.5rem;
+    font-size: 0.825rem;
+    color: var(--clr-light-red);
+    display: none;
+}
+
+input[type="email"]:is(:hover,:focus,:active) + .error-text{
+    display: block;
+}
+
+input[type="email"]:is(:hover,:focus,:active){
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+
+
+.footer__col-2{
+    margin: 2rem 0;
+}
+
+.footer-logo{
+    padding: 1rem 0;
+}
+
+.footer-logo::before{
+    content: "";
+    background-image: url(./images/logo-footer.svg);
+    width: 80%;
+    height: 39px;
+    display: inline-block;
+    color: white;
+    fill: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer-description{
+    padding: 1rem 0 2rem 0;
+    line-height: 1.7;
+    font-size: 0.9rem;
+}
+
+.phone.flex-item,
+.mail.flex-item{
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.social{
+    color: white;
+    fill: white;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 2rem;
+}
+
+.social-icon:hover{
+    cursor: pointer;
+    color: cyan;
+    fill: cyan;
+}
+
+
+.social-icon{
+    max-width: 8%;
+}
+
+@media (min-width:50rem){
+    main,
+    footer{
+    max-width: 1440px;
+  /*   border: 1px solid red; */
+    }
+
+    .header{
+        padding: 4rem;
+    }
+    
+    .header-logo{
+        max-width: 12rem;
+    }
+    
+    .header-try-it-free{
+        border: 1px solid var(--clr-light-pink);
+        background-color: white;
+        color: var(--clr-light-pink);
+        font-size: 1.25rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 1.5rem;
+    }
+
+    .header-try-it-free:hover{
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .huddle__hero{
+        padding: 4rem;
+        text-align: center;
+        margin-top: 4rem;
+    }
+    .huddle__hero-header{
+        font-size: 3rem;
+        font-family: var(--ff-accent);
+    }
+    
+    .huddle__hero-description{
+        margin: 1rem 22rem;
+        font-size: 1.25rem;
+        color: var(--clr-very-dark-cyan);
+    }
+    
+    .huddle__hero-button{
+        border: 0;
+        margin: 2rem;
+        font-size: 1.25rem;
+        padding: 1.35rem 5rem;
+        background-color: var(--clr-pink);
+        color: white;
+        border-radius: 2rem;
+        box-shadow: 2px 0 11px 0 rgba(0, 0, 0, 0.5); 
+        font-family: var(--ff-accent);
+    }
+    
+    .huddle__hero-button:hover{
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .huddle__hero-screen__mockup{
+        margin: 5rem 10rem;
+    }
+
+    .huddle__stats.flex-item,
+    .huddle__stats-messages.flex-item{
+        flex-direction: row;
+    }
+
+
+    .huddle__stats{
+        padding: 0 10rem;
+        text-align: left;
+    }
+    
+    .huddle__stats-communities__icon,
+    .huddle__stats-messages__icon{
+        max-width: 3rem;
+    }
+    
+    .huddle__stats-messages.flex-item{
+        flex-direction: column;
+        margin: 3rem 0;
+    }
+
+    .huddle__stats-communities{
+        margin: 3rem 0;
+    }
+    
+    .huddle__stats-communities__title,
+    .huddle__stats-messages__title{
+        font-size: 5.5rem;
+        padding: 0;
+    }
+    
+    .huddle__stats-communities__description,
+    .huddle__stats-messages__description{
+        color: grey;
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .huddle__grow.flex-item,
+    .huddle__users.flex-item{
+        flex-direction: row-reverse;
+        gap: 2rem;
+        text-align: left;
+    }
+
+    .huddle__flowing.flex-item{
+        flex-direction: row;
+        gap: 2rem;
+        text-align: left;
+    }
+
+    .huddle__grow-title,
+    .huddle__flowing-title,
+    .huddle__users-title{
+        padding: 10rem 2rem 2rem 2rem;
+        font-size: 2.5rem;
+        font-family: var(--ff-accent);
+    }
+
+    .huddle__grow-description,
+    .huddle__flowing-description,
+    .huddle__users-description{
+        font-size: 1rem;
+        padding: 0 15rem 0 2rem;
+        line-height: 1.5;
+        color: var(--clr-very-dark-cyan);
+    }
+
+    .huddle__flowing-description{
+        font-size: 1rem;
+        padding: 0 8rem 0 2rem;
+        line-height: 1.5;
+        color: var(--clr-very-dark-cyan);
+    }
+
+
+    .top-section-curve-1{
+        background-image: url(./images/bg-section-top-desktop-1.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 139px;
+    }
+
+    .bottom-section-curve-1{
+        background-image: url(./images/bg-section-bottom-desktop-1.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 139px;
+    }
+
+    .build-your-community{
+        font-size: 3rem;
+        text-align: center;
+        padding: 2rem;
+        font-family: var(--ff-accent);
+    }
+    
+    .get-started-for-free{
+        margin: 0 33%;
+        padding: 1.5rem 6rem;
+        border: 0;
+        background-color: var(--clr-pink);
+        border-radius: 2.5rem;
+        font-family: var(--ff-accent);
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 2px 0 11px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .get-started-for-free:hover{
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .top-section-curve-2{
+        background-image: url(./images/bg-section-top-desktop-2.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 159px;
+    }
+    
+    .huddle__users{
+        background-color: var(--clr-very-pale-blue);
+    }
+    
+    .bottom-section-curve-2{
+        background-image: url(./images/bg-section-bottom-desktop-2.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 139px;
+    }
+
+    .top-footer-curve{
+        margin-top: 5rem;
+        background-image: url(./images/bg-footer-top-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 158px;
+    }
+
+    footer.flex-item{
+        flex-direction: row-reverse;
+        padding: 5rem;
+    }
+
+    .newsletter{
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+
+    .newslaetter-description{
+        max-width: 22rem;
+        padding-bottom: 2rem;
+    }
+
+    .footer-description{
+        max-width: 20rem;
+    }
+
+    .subscribe {
+        margin-left: 0%;
+        padding: 0.5rem 1.5rem;
+        margin-top: 0rem;
+        color: white;
+        background-color: var(--clr-pink);
+        border-radius: 0.5rem;
+        font-family: var(--ff-accent);
+    }
+    
+
+    .subscriber-email.flex-item{
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .social {
+        height: 50%;
+        gap: 2rem;
+    }
+
+    .social-icon {
+        max-width: 12%;
+    }
+
+
+}
+
