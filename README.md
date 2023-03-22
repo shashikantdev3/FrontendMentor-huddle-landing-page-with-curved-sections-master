@@ -48,23 +48,45 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+In this project I have implemented the box-shadow and styling of the input tag, also learned how we can show some text onhover/onFocus/onActive.
 
-To see how you can add code snippets, see below:
+Used properties like display:none and color: transparent
+
+See below code snippet:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+          <div class="subscriber-email flex-item">
+            <div class="email-input">
+              <input type="email" name="email" id="email" placeholder="john#mail.com">
+            <div class="error-text">Check your email please</div>
+          </div>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+::placeholder{
+    color: transparent;
+}
+
+:is(:hover,:focus,:active)::placeholder { /* Chrome/Opera/Safari */
+    color: #999;
+  }
+
+.error-text{
+    margin-top: 0.5rem;
+    font-size: 0.825rem;
+    color: var(--clr-light-red);
+    display: none;
+}
+
+input[type="email"]:is(:hover,:focus,:active) + .error-text{
+    display: block;
+}
+
+input[type="email"]:is(:hover,:focus,:active){
+    cursor: pointer;
+    border: 1px solid red;
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+
 
 - Website - [Shashikant Dev](https://www.your-site.com)
 - Frontend Mentor - [@shashikantdev3](https://www.frontendmentor.io/profile/shashikantdev3)
